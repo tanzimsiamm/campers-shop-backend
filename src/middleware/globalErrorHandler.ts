@@ -19,27 +19,27 @@ const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
   ];
 
 
-if (err?.name === 'ValidationError') {
+  if (err?.name === 'ValidationError') {
     const simplifiedError = handleValidationError(err);
     statusCode = simplifiedError?.statusCode;
     message = simplifiedError?.message;
     errorMessages = simplifiedError?.errorMessages;
   }
-  
+
   else if (err?.name === 'CastError') {
     const simplifiedError = handleCastError(err);
     statusCode = simplifiedError?.statusCode;
     message = simplifiedError?.message;
     errorMessages = simplifiedError?.errorMessages;
   }
-  
+
   else if (err?.code === 11000) {
     const simplifiedError = handleDuplicateError(err);
     statusCode = simplifiedError?.statusCode;
     message = simplifiedError?.message;
     errorMessages = simplifiedError?.errorMessages;
   }
-  
+
   else if (err instanceof AppError) {
     statusCode = err?.statusCode;
     message = err.message;
@@ -49,8 +49,8 @@ if (err?.name === 'ValidationError') {
         message: err?.message,
       },
     ];
-  } 
-  
+  }
+
   else if (err instanceof Error) {
     message = err.message;
     errorMessages = [

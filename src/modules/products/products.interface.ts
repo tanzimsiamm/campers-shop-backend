@@ -14,7 +14,7 @@ export type TProduct = {
 
 export type TProductsQuery = {
     searchValue?: string,
-      category?: string,
-      priceRange?: string,
-      sortByPrice?: string
-  };
+    category?: string,
+    priceRange?: string,
+    sortByPrice?: string
+};
