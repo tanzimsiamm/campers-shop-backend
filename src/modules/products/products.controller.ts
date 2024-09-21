@@ -43,6 +43,7 @@ const getSingleProduct = catchAsync(async (req: Request, res: Response) => {
 
 const getBestSellingProducts = catchAsync(async (req: Request, res: Response) => {
     const result = await ProductServices.getBestSellingProductsFromDB();
+    // console.log(result)
 
     sendResponse(res, {
         statusCode: httpStatus.OK,
